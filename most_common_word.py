@@ -3,25 +3,29 @@
 
 from collections import Counter
 
+# Method for removing punctuation (. and ,) from string
 def rmPunc(string):
-    ignore = [".", ","]
+    ignore = [".", ","] # Things to remove
     for thing in ignore:
-        string = string.replace(thing, "")
-    words = string.lower().split()
+        string = string.replace(thing, "") # Remove . and ,
+    words = string.lower().split() # To lowercase and puts words into list
     return words
 
-def mostCommon(filename):
+def most_common_word(filename):
+    # Initialize Variables
     file2str = ""
     count = {}
+    
     file = open(filename, 'r')
     for line in file:
-        file2str += line
-    words = rmPunc(file2str)
-    count = Counter(words)
-    print (count.most_common(1))
-        
+        file2str += line # Puts lines into strings
+    words = rmPunc(file2str) # Removes punctuation
+    count = Counter(words) # Counts words
+    print (count.most_common(1)) # Prints most common word
 
-mostCommon('words.txt')
+    file.close() # Close file  
+
+
         
     
             
